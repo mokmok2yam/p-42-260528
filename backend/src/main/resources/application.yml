@@ -77,8 +77,8 @@ custom:
   appName: jeongmokShop
   prod:
     domain: jeongmok.shop
-    backUrl: "https://api.${custom.appName}.${custom.prod.domain}"
-    frontUrl: "https://www.${custom.appName}.${custom.prod.domain}"
+    backUrl: "https://api.${custom.prod.domain}"
+    frontUrl: "https://www.${custom.prod.domain}"
 
   dev:
     domain: localhost
