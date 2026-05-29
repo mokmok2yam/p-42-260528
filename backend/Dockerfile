@@ -12,7 +12,7 @@ COPY settings.gradle.kts .
 RUN gradle wrapper
 
 # 종속성 설치
-RUN ./gradlew dependencies --no-daemon
+RUN ./gradlew build --no-daemon -x test
 
 # 소스 코드 복사
 COPY src src
