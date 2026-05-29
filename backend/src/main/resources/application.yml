@@ -12,12 +12,12 @@ spring:
 
   profiles:
     active: dev
-    include: secret
+    include: secret  # 여기서 application-secret.yml 파일을 불러옵니다.
 
   servlet:
     multipart:
       max-request-size: 5MB
-      max-file-size: ${spring.servlet.multipart.max-request-size}
+      max-file-size: 5MB # 순환 참조 방지를 위해 명시적 값(5MB)으로 변경
 
   jackson:
     serialization:
@@ -48,8 +48,7 @@ spring:
       client:
         registration:
           kakao:
-            client-id: "${spring.security.oauth2.client.registration.kakao.client-id}"
-            client-secret: "${spring.security.oauth2.client.registration.kakao.client-secret}"
+            # 💡 client-id와 client-secret은 secret 파일에서 가져오므로 여기서는 완전히 삭제했습니다.
             client-authentication-method: client_secret_post
             scope: profile_nickname, profile_image
             client-name: Kakao
@@ -71,7 +70,6 @@ logging:
 
 springdoc:
   default-produces-media-type: application/json;charset=UTF-8
-
 
 custom:
   appName: jeongmokShop
